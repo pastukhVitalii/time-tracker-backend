@@ -1,0 +1,74 @@
+### GET ADMIN
+GET http://localhost:5000/api/admins
+Accept: application/json
+
+### login
+POST http://localhost:5000/api/admins/login
+Content-Type: application/json
+
+{
+  "email": "five@gmail.com",
+  "password": "2222"
+}
+
+### register
+POST http://localhost:5000/api/admins/new
+content-type: application/json
+
+{
+  "email": "111withoutparsessss@gmail.com",
+  "password": "2222"
+}
+
+
+### GET project
+GET http://localhost:5000/api/projects
+Accept: application/json
+
+### create project
+POST http://localhost:5000/api/projects
+content-type: application/json
+
+{
+  "projectName": "code 201",
+  "user_id": "92e600c5-c9f8-4476-906e-c3935471d6d0"
+}
+
+### DELETE project
+DELETE http://localhost:5000/api/projects/5b2ed874-38e8-4f63-9fb3-35d124fd97e2
+Content-Type: application/json
+
+### PUT project
+PUT http://localhost:5000/api/projects/b0c54c20-86a9-4caf-b025-67778231d5c3
+Content-Type: application/json
+
+{
+  "projectName": "0update name"
+}
+
+
+### GET tasks
+GET http://localhost:5000/api/tasks
+Accept: application/json
+
+### create task
+POST http://localhost:5000/api/tasks
+content-type: application/json
+
+{
+  "task_name": "task 2",
+  "project_id": "5652cdca-7042-4ec4-809c-d7300804f5aa",
+  "user_id": "92e600c5-c9f8-4476-906e-c3935471d6d0"
+}
+
+### DELETE task
+DELETE http://localhost:5000/api/task/d741309e-c22b-4119-9610-b58869e3107e
+Content-Type: application/json
+
+### PUT project
+PUT http://localhost:5000/api/task/e7a6265d-872f-4b13-89bd-a0a4559c1ce1
+Content-Type: application/json
+
+{
+  "task_name": "0update name"
+}
