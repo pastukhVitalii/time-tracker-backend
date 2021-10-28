@@ -7,7 +7,16 @@ POST http://localhost:5000/api/admins/login
 Content-Type: application/json
 
 {
-  "email": "five@gmail.com",
+  "email": "vitaliy.p@halo-lab.team",
+  "password": "111111"
+}
+
+### login no existed user
+POST http://localhost:5000/api/admins/login
+Content-Type: application/json
+
+{
+  "email": "fives@gmail.com",
   "password": "2222"
 }
 
@@ -16,7 +25,7 @@ POST http://localhost:5000/api/admins/new
 content-type: application/json
 
 {
-  "email": "111withoutparsessss@gmail.com",
+  "email": "11s1withoutparsessss@gmail.com",
   "password": "2222"
 }
 
@@ -24,23 +33,27 @@ content-type: application/json
 ### GET project
 GET http://localhost:5000/api/projects
 Accept: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2MzUzNjY5MDcsImV4cCI6MTYzNTYyNjEwN30.KBe2QLNegP0zXpiLRPKTWjSTW2Gn1_fX71l352AFfiE
 
 ### create project
 POST http://localhost:5000/api/projects
-content-type: application/json
+Content-type: application/json
+token: 1eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2MzUzNjY5MDcsImV4cCI6MTYzNTYyNjEwN30.KBe2QLNegP0zXpiLRPKTWjSTW2Gn1_fX71l352AFfiE
 
 {
-  "projectName": "code 201",
+  "projectName": "refactor",
   "user_id": "92e600c5-c9f8-4476-906e-c3935471d6d0"
 }
 
 ### DELETE project
-DELETE http://localhost:5000/api/projects/5b2ed874-38e8-4f63-9fb3-35d124fd97e2
+DELETE http://localhost:5000/api/projects/c39a5e14-eb9e-4785-9562-00f8558fdd3c
 Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2MzUzNjY5MDcsImV4cCI6MTYzNTYyNjEwN30.KBe2QLNegP0zXpiLRPKTWjSTW2Gn1_fX71l352AFfiE
 
 ### PUT project
 PUT http://localhost:5000/api/projects/b0c54c20-86a9-4caf-b025-67778231d5c3
 Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2MzUzNjY5MDcsImV4cCI6MTYzNTYyNjEwN30.KBe2QLNegP0zXpiLRPKTWjSTW2Gn1_fX71l352AFfiE
 
 {
   "projectName": "0update name"

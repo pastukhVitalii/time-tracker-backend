@@ -49,7 +49,7 @@ const adminRoutes = (fastify, options, done) => {
         {expiresIn: 3 * 86400},
         (err, token) => {
           if (err) throw err;
-          reply.send(token);
+          reply.send({token: token});
         }
       );
 
