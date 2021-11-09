@@ -2,6 +2,12 @@ const typeString = {type: 'string'};
 
 const getTask = {
   schema: {
+    params: {
+      type: 'object',
+      properties: {
+        id: {type: 'string', format: 'uuid'}
+      }
+    },
     response: {
       200: {
         type: 'array',
@@ -41,7 +47,7 @@ const createTask = {
           create_date: typeString,
           update_date: typeString,
           time: typeString,
-          project: typeString,
+          project_id: typeString,
           user_id: typeString,
         },
       },

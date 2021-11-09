@@ -29,20 +29,18 @@ content-type: application/json
   "password": "2222"
 }
 
-
 ### GET project
 GET http://localhost:5000/api/projects
-Accept: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2MzUzNjY5MDcsImV4cCI6MTYzNTYyNjEwN30.KBe2QLNegP0zXpiLRPKTWjSTW2Gn1_fX71l352AFfiE
+Content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2MzYzMDM2MDUsImV4cCI6MTYzNjU2MjgwNX0.Adeh5Wgnshnt-64ZQ52NDtxKSQ9lFKvbljxRuI89SuY
 
 ### create project
 POST http://localhost:5000/api/projects
 Content-type: application/json
-token: 1eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2MzUzNjY5MDcsImV4cCI6MTYzNTYyNjEwN30.KBe2QLNegP0zXpiLRPKTWjSTW2Gn1_fX71l352AFfiE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2MzYzMDM2MDUsImV4cCI6MTYzNjU2MjgwNX0.Adeh5Wgnshnt-64ZQ52NDtxKSQ9lFKvbljxRuI89SuY
 
 {
-  "projectName": "refactor",
-  "user_id": "92e600c5-c9f8-4476-906e-c3935471d6d0"
+  "projectName": "7.11(2)"
 }
 
 ### DELETE project
@@ -59,26 +57,26 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODct
   "projectName": "0update name"
 }
 
-
 ### GET tasks
-GET http://localhost:5000/api/tasks
-Accept: application/json
+GET http://localhost:5000/api/project/tasks/063a2c71-ce72-483f-a545-4a488b757d32
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2MzYzMDM2MDUsImV4cCI6MTYzNjU2MjgwNX0.Adeh5Wgnshnt-64ZQ52NDtxKSQ9lFKvbljxRuI89SuY
 
 ### create task
 POST http://localhost:5000/api/tasks
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2MzYzMDM2MDUsImV4cCI6MTYzNjU2MjgwNX0.Adeh5Wgnshnt-64ZQ52NDtxKSQ9lFKvbljxRuI89SuY
 
 {
-  "task_name": "task 2",
-  "project_id": "5652cdca-7042-4ec4-809c-d7300804f5aa",
-  "user_id": "92e600c5-c9f8-4476-906e-c3935471d6d0"
+  "task_name": "5 task",
+  "project_id": "063a2c71-ce72-483f-a545-4a488b757d32"
 }
 
 ### DELETE task
 DELETE http://localhost:5000/api/task/d741309e-c22b-4119-9610-b58869e3107e
 Content-Type: application/json
 
-### PUT project
+### PUT task
 PUT http://localhost:5000/api/task/e7a6265d-872f-4b13-89bd-a0a4559c1ce1
 Content-Type: application/json
 

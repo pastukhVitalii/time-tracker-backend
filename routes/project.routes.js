@@ -3,12 +3,12 @@ const {v4: uuidv4} = require('uuid');
 const {getProjects, createProject, deleteProject, updateProject} = require('../schema/project.schema');
 
 const projectRoutes = (fastify, options, done) => {
-  fastify.register(require('fastify-auth')).after(() => privatePostRoutes(fastify, options, done));
+  fastify.register(require('fastify-auth')).after(() => privateRoutes(fastify, options, done));
 
   done();
 };
 
-const privatePostRoutes = (fastify, options, done) => {
+const privateRoutes = (fastify, options, done) => {
   fastify.route({
     method: "GET",
     url: '/api/projects',
@@ -30,7 +30,8 @@ const privatePostRoutes = (fastify, options, done) => {
     preHandler: fastify.auth([verifyToken]),
     schema: createProject,
     handler: async (req, reply) => {
-      const {projectName, user_id} = req.body;
+      const {projectName} = req.body;
+      const user_id = req.user.id.id;
       const id = uuidv4();
 
       const createdate = new Date().toISOString();

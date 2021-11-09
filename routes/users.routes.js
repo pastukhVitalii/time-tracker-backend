@@ -28,7 +28,6 @@ const adminRoutes = (fastify, options, done) => {
          WHERE email = COALESCE($1, email) `, [email],
       )
       // client.release()
-      console.log("res ", res.rows[0])
       return res.rows[0];
     }
     try {
@@ -53,7 +52,6 @@ const adminRoutes = (fastify, options, done) => {
         }
       );
 
-      // console.log("reply ", reply)
       await reply;
     } catch (err) {
       console.log(err);
@@ -75,11 +73,9 @@ const adminRoutes = (fastify, options, done) => {
          WHERE email = COALESCE($1, email) `, [email],
       )
       // client.release()
-      console.log("res ", res.rows[0])
       return res.rows[0];
     }
     const admin = await getAdmin();
-    console.log("-> admin", admin);
     if (admin) {
       return reply.send("This email is using");
     }

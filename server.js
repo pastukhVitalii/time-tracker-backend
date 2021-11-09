@@ -15,7 +15,7 @@ fastify.register(require('fastify-cors'), {
 const dbconnector = require('./db')
 fastify.register(dbconnector)
 
-fastify.register(require('./routes/users'))
+fastify.register(require('./routes/users.routes'))
 fastify.register(require('./routes/project.routes'))
 fastify.register(require('./routes/task.routes'))
 
