@@ -1,8 +1,11 @@
 const jwt = require('jsonwebtoken');
 const {v4: uuidv4} = require('uuid');
-const {getAdminsOpts, loginAdminOpts, registerAdminOpts} = require('../schema/user.schema.js');
+const verifyToken = require("../auth/verifyToken");
+const {getAdminsOpts, loginAdminOpts, registerAdminOpts, getMe} = require('../schema/user.schema.js');
 
 const adminRoutes = (fastify, options, done) => {
+  fastify.register(require('fastify-auth')).after(() => privateRoutes(fastify, options, done));
+
   // get all admins
   fastify.get('/api/admins', getAdminsOpts, async (req, reply) => {
 
@@ -81,7 +84,8 @@ const adminRoutes = (fastify, options, done) => {
     }
     fastify.pg.query(
       `INSERT INTO admin(id, email, password)
-       VALUES ($1, $2, $3) RETURNING *`, [id, email, password],
+       VALUES ($1, $2, $3)
+       RETURNING *`, [id, email, password],
       function onResult(err, result) {
         reply.send(err || result.rows[0])
       }
@@ -91,4 +95,24 @@ const adminRoutes = (fastify, options, done) => {
   done();
 };
 
+const privateRoutes = (fastify, options, done) => {
+  fastify.route({
+    method: "GET",
+    url: '/api/admins/me',
+    preHandler: fastify.auth([verifyToken]),
+    schema: getMe,
+    handler: async (req, reply) => {
+      const id = req.user.id.id;
+      fastify.pg.query(
+        'SELECT * FROM admin WHERE id = $1', [id],
+        function onResult(err, result) {
+          console.log("-> ", err);
+          console.log("-> result", result);
+          if (err) reply.send({status: false})
+          else reply.send(result.rows[0])
+        }
+      )
+    }
+  })
+}
 module.exports = adminRoutes;

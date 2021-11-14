@@ -9,7 +9,6 @@ const getAdminsOpts = {
           type: 'object',
           properties: {
             id: typeString,
-            password: typeString,
             email: typeString,
           },
         },
@@ -62,4 +61,16 @@ const loginAdminOpts = {
   }
 };
 
-module.exports = {loginAdminOpts, getAdminsOpts, registerAdminOpts}
+const getMe = {
+  response: {
+    200: {
+      type: 'object',
+      properties: {
+        id: typeString,
+        email: typeString,
+      },
+    },
+  },
+};
+
+module.exports = {loginAdminOpts, getAdminsOpts, registerAdminOpts, getMe}

@@ -29,6 +29,11 @@ content-type: application/json
   "password": "2222"
 }
 
+### ME
+GET http://localhost:5000/api/admins/me
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2MzY5MDQzMzYsImV4cCI6MTYzNzE2MzUzNn0.qWAw79ORtzrYJw9gJKpzU-reTD7U6UglXaXtipSjLwo
+
 ### GET project
 GET http://localhost:5000/api/projects
 Content-type: application/json
