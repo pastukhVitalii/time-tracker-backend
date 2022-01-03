@@ -25,8 +25,9 @@ POST http://localhost:5000/api/admins/new
 content-type: application/json
 
 {
-  "email": "11s1withoutparsessss@gmail.com",
-  "password": "2222"
+  "email": "77withoutparsessss@gmail.com",
+  "password": "2222",
+  "name": "Vitaliy"
 }
 
 ### ME
@@ -35,9 +36,9 @@ Accept: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2MzY5MDQzMzYsImV4cCI6MTYzNzE2MzUzNn0.qWAw79ORtzrYJw9gJKpzU-reTD7U6UglXaXtipSjLwo
 
 ### GET project
-GET http://localhost:5000/api/projects
+GET http://localhost:5000/api/projects/97206e85-b187-45ba-8eef-c56283b97e24
 Content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2MzYzMDM2MDUsImV4cCI6MTYzNjU2MjgwNX0.Adeh5Wgnshnt-64ZQ52NDtxKSQ9lFKvbljxRuI89SuY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6IjYzODY3NmExLWM4ZWYtNGY1YS04YjczLTJkNmQyMjJkYjMzNSIsImVtYWlsIjoiZmFtaWx5cGFzdHVraEBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjExMTExMSIsIm5hbWUiOiLQktGW0YLQsNC70ZbQuSDQn9Cw0YHRgtGD0YUifSwiaWF0IjoxNjQwNzIyNTcyLCJleHAiOjE2NDA5ODE3NzJ9.Gi__A1wvx4wPoj4ct4oTIMUAXB3gN9T_1ohnOF5XxF4
 
 ### create project
 POST http://localhost:5000/api/projects
@@ -65,7 +66,7 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODct
 ### GET tasks
 GET http://localhost:5000/api/project/tasks/063a2c71-ce72-483f-a545-4a488b757d32
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2MzYzMDM2MDUsImV4cCI6MTYzNjU2MjgwNX0.Adeh5Wgnshnt-64ZQ52NDtxKSQ9lFKvbljxRuI89SuY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2NDA0NDk0MDIsImV4cCI6MTY0MDcwODYwMn0.sawYok1noAL6-yKGiX8rbdB8X9mIjfgzmchv-b7U9Dg
 
 ### create task
 POST http://localhost:5000/api/tasks
@@ -84,7 +85,12 @@ Content-Type: application/json
 ### PUT task
 PUT http://localhost:5000/api/task/e7a6265d-872f-4b13-89bd-a0a4559c1ce1
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2NDA0NDk0MDIsImV4cCI6MTY0MDcwODYwMn0.sawYok1noAL6-yKGiX8rbdB8X9mIjfgzmchv-b7U9Dg
 
 {
-  "task_name": "0update name"
+  "task_name": "0update name",
+  "create_date": "",
+  "time": "30",
+  "project_id": "063a2c71-ce72-483f-a545-4a488b757d32",
+  "user_id": "92e600c5-c9f8-4476-906e-c3935471d6d0"
 }

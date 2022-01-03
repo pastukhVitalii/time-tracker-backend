@@ -64,7 +64,7 @@ const adminRoutes = (fastify, options, done) => {
 
   // register an admin
   fastify.post('/api/admins/new', registerAdminOpts, async (req, reply) => {
-    const {email} = req.body;
+    const {email, name} = req.body;
     const {password} = req.body;
     const id = uuidv4();
 
@@ -83,9 +83,9 @@ const adminRoutes = (fastify, options, done) => {
       return reply.send("This email is using");
     }
     fastify.pg.query(
-      `INSERT INTO admin(id, email, password)
-       VALUES ($1, $2, $3)
-       RETURNING *`, [id, email, password],
+      `INSERT INTO admin(id, email, name, password)
+       VALUES ($1, $2, $3, $4)
+       RETURNING *`, [id, email, name, password],
       function onResult(err, result) {
         reply.send(err || result.rows[0])
       }
@@ -106,8 +106,6 @@ const privateRoutes = (fastify, options, done) => {
       fastify.pg.query(
         'SELECT * FROM admin WHERE id = $1', [id],
         function onResult(err, result) {
-          console.log("-> ", err);
-          console.log("-> result", result);
           if (err) reply.send({status: false})
           else reply.send(result.rows[0])
         }

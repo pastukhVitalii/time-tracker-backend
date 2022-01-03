@@ -85,7 +85,7 @@ const updateTask = {
     body: {
       type: 'object',
       properties: {
-        project_name: typeString,
+        task_name: typeString,
         create_date: typeString,
         update_date: typeString,
         time: typeString,
@@ -94,10 +94,19 @@ const updateTask = {
       },
     },
     response: {
-      201: {
+      200: {
         type: 'object',
         properties: {
-          updated: {type: 'boolean'}
+          updated: {type: 'boolean'},
+          task: {
+            id: typeString,
+            task_name: typeString,
+            create_date: typeString,
+            update_date: typeString,
+            time: typeString,
+            project_id: typeString,
+            user_id: typeString,
+          }
         }
       }
     },

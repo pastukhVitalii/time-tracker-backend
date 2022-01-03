@@ -19,7 +19,7 @@ const privateRoutes = (fastify, options, done) => {
       fastify.pg.query(
         'SELECT * FROM task WHERE project_id = $1', [project_id],
         function onResult(err, result) {
-          reply.send(err || result.rows)
+          reply.send(err || result.rows.sort((a, b) => new Date(a.update_date) - new Date(b.update_date)).reverse());
         }
       )
     }
@@ -75,16 +75,15 @@ const privateRoutes = (fastify, options, done) => {
     preHandler: fastify.auth([verifyToken]),
     schema: updateTask,
     handler: async (req, reply) => {
-      const {task_name,} = req.body
+      const {task_name, create_date, time, project_id, user_id} = req.body
       const id = req.params.id
       const update_date = new Date().toISOString();
 
       fastify.pg.query(
-        'UPDATE task SET task_name=$1, update_date=$2 WHERE id=$3', [task_name, update_date, id],
+        'UPDATE task SET task_name=$1, update_date=$2, create_date=$3, time=$4, project_id=$5, user_id=$6 WHERE id=$7 RETURNING *', [task_name, update_date, create_date, time, project_id, user_id, id],
         function onResult(err, result) {
           if (err) reply.send(err)
-          reply.code(201);
-          reply.send({updated: true});
+          reply.send({updated: true, task: result.rows[0]});
         }
       )
     }

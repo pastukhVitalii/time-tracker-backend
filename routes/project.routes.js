@@ -11,14 +11,15 @@ const projectRoutes = (fastify, options, done) => {
 const privateRoutes = (fastify, options, done) => {
   fastify.route({
     method: "GET",
-    url: '/api/projects',
+    url: '/api/projects/:id',
     preHandler: fastify.auth([verifyToken]),
     schema: getProjects,
     handler: async (req, reply) => {
+      const user_id = req.params.id
       fastify.pg.query(
-        'SELECT * FROM project',
+        'SELECT * FROM project WHERE user_id = $1', [user_id],
         function onResult(err, result) {
-          reply.send(err || result.rows)
+          reply.send(err || result.rows.reverse());
         }
       )
     }

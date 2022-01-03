@@ -21,10 +21,11 @@ const registerAdminOpts = {
   schema: {
     body: {
       type: 'object',
-      required: ['email', 'password'],
+      required: ['email', 'password', 'name'],
       properties: {
         password: typeString,
         email: typeString,
+        name: typeString,
       },
     },
     response: {
@@ -34,6 +35,7 @@ const registerAdminOpts = {
           id: typeString,
           password: typeString,
           email: typeString,
+          name: typeString,
         },
       },
     },
@@ -68,6 +70,7 @@ const getMe = {
       properties: {
         id: typeString,
         email: typeString,
+        name: typeString,
       },
     },
   },
