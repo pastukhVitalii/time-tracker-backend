@@ -6,9 +6,11 @@ CREATE TABLE task
     update_date VARCHAR(255),
     time        VARCHAR(255),
     project_id  UUID,
-    FOREIGN KEY (project_id) references project (id),
+    FOREIGN KEY (project_id) references project (id)
+    ON DELETE CASCADE,
     user_id     UUID,
     FOREIGN KEY (user_id) references admin (id)
+    ON DELETE CASCADE
 );
 
 CREATE TABLE project
@@ -19,12 +21,14 @@ CREATE TABLE project
     updateDate  VARCHAR(255),
     time        VARCHAR(255),
     user_id     UUID,
-    FOREIGN KEY (user_id) references user (id)
+    FOREIGN KEY (user_id) references admin (id)
 );
 
 CREATE TABLE admin
 (
     id       UUID PRIMARY KEY,
     email    VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL
 );
+

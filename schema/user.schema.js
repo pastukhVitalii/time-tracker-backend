@@ -1,6 +1,6 @@
 const typeString = {type: 'string'};
 
-const getAdminsOpts = {
+const getAdmins = {
   schema: {
     response: {
       200: {
@@ -17,7 +17,7 @@ const getAdminsOpts = {
   },
 };
 
-const registerAdminOpts = {
+const registerAdmin = {
   schema: {
     body: {
       type: 'object',
@@ -29,20 +29,21 @@ const registerAdminOpts = {
       },
     },
     response: {
-      200: {
+      201: {
         type: 'object',
         properties: {
           id: typeString,
           password: typeString,
           email: typeString,
           name: typeString,
+          token: typeString,
         },
       },
     },
   },
 };
 
-const loginAdminOpts = {
+const loginAdmin = {
   schema: {
     body: {
       type: 'object',
@@ -76,4 +77,4 @@ const getMe = {
   },
 };
 
-module.exports = {loginAdminOpts, getAdminsOpts, registerAdminOpts, getMe}
+module.exports = {loginAdmin, getAdmins, registerAdmin, getMe}

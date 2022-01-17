@@ -32,7 +32,7 @@ const privateRoutes = (fastify, options, done) => {
     schema: createProject,
     handler: async (req, reply) => {
       const {projectName} = req.body;
-      const user_id = req.user.id.id;
+      const user_id = req.user.user.id;
       const id = uuidv4();
 
       const createdate = new Date().toISOString();
@@ -45,7 +45,7 @@ const privateRoutes = (fastify, options, done) => {
         function onResult(err, result) {
           if (err) reply.send(err)
           reply.code(201)
-          reply.send(result.rows[0])
+          reply.send(result?.rows[0])
         }
       )
     }
@@ -62,7 +62,8 @@ const privateRoutes = (fastify, options, done) => {
         'DELETE FROM project WHERE id = $1 RETURNING *', [id],
         function onResult(err, result) {
           if (err) reply.send(err)
-          reply.send({deleted: true})
+          if (result?.rowCount !== 0) reply.send({deleted: true})
+          else reply.send("Project not found!")
         }
       )
     }

@@ -16,7 +16,7 @@ POST http://localhost:5000/api/admins/login
 Content-Type: application/json
 
 {
-  "email": "fives@gmail.com",
+  "email": "ss@gmail.com",
   "password": "2222"
 }
 
@@ -25,72 +25,74 @@ POST http://localhost:5000/api/admins/new
 content-type: application/json
 
 {
-  "email": "77withoutparsessss@gmail.com",
-  "password": "2222",
+  "email": "11dcddss@gmail.com",
+  "password": "",
   "name": "Vitaliy"
 }
 
 ### ME
 GET http://localhost:5000/api/admins/me
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2MzY5MDQzMzYsImV4cCI6MTYzNzE2MzUzNn0.qWAw79ORtzrYJw9gJKpzU-reTD7U6UglXaXtipSjLwo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiODRiNzI4ZWUtYjkxMy00MDNiLTg3ZGQtNmQzOGRhNzg4OThhIiwiZW1haWwiOiJ2aXRhbGl5LnBAaGFsby1sYWIudGVhbSIsInBhc3N3b3JkIjoiMTExMTExIiwibmFtZSI6ImQifSwiaWF0IjoxNjQyMTA5MTUxLCJleHAiOjE2NDIzNjgzNTF9.gUQSN7-Mydz6DGivtMYiwX3qqUKYgnTMuaqRiTgMefs
 
 ### GET project
-GET http://localhost:5000/api/projects/97206e85-b187-45ba-8eef-c56283b97e24
+GET http://localhost:5000/api/projects/84b728ee-b913-403b-87dd-6d38da78898a
 Content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6IjYzODY3NmExLWM4ZWYtNGY1YS04YjczLTJkNmQyMjJkYjMzNSIsImVtYWlsIjoiZmFtaWx5cGFzdHVraEBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjExMTExMSIsIm5hbWUiOiLQktGW0YLQsNC70ZbQuSDQn9Cw0YHRgtGD0YUifSwiaWF0IjoxNjQwNzIyNTcyLCJleHAiOjE2NDA5ODE3NzJ9.Gi__A1wvx4wPoj4ct4oTIMUAXB3gN9T_1ohnOF5XxF4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiODRiNzI4ZWUtYjkxMy00MDNiLTg3ZGQtNmQzOGRhNzg4OThhIiwiZW1haWwiOiJ2aXRhbGl5LnBAaGFsby1sYWIudGVhbSIsInBhc3N3b3JkIjoiMTExMTExIiwibmFtZSI6ImQifSwiaWF0IjoxNjQyMTA5MTUxLCJleHAiOjE2NDIzNjgzNTF9.gUQSN7-Mydz6DGivtMYiwX3qqUKYgnTMuaqRiTgMefs
 
+/// ->
 ### create project
 POST http://localhost:5000/api/projects
 Content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2MzYzMDM2MDUsImV4cCI6MTYzNjU2MjgwNX0.Adeh5Wgnshnt-64ZQ52NDtxKSQ9lFKvbljxRuI89SuY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiODRiNzI4ZWUtYjkxMy00MDNiLTg3ZGQtNmQzOGRhNzg4OThhIiwiZW1haWwiOiJ2aXRhbGl5LnBAaGFsby1sYWIudGVhbSIsInBhc3N3b3JkIjoiMTExMTExIiwibmFtZSI6ImQifSwiaWF0IjoxNjQyMTA5MTUxLCJleHAiOjE2NDIzNjgzNTF9.gUQSN7-Mydz6DGivtMYiwX3qqUKYgnTMuaqRiTgMefs
 
 {
   "projectName": "7.11(2)"
 }
 
 ### DELETE project
-DELETE http://localhost:5000/api/projects/c39a5e14-eb9e-4785-9562-00f8558fdd3c
+DELETE http://localhost:5000/api/projects/8358a0f1-a071-40d9-bb04-6c1f4153fbc7
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2MzUzNjY5MDcsImV4cCI6MTYzNTYyNjEwN30.KBe2QLNegP0zXpiLRPKTWjSTW2Gn1_fX71l352AFfiE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiODRiNzI4ZWUtYjkxMy00MDNiLTg3ZGQtNmQzOGRhNzg4OThhIiwiZW1haWwiOiJ2aXRhbGl5LnBAaGFsby1sYWIudGVhbSIsInBhc3N3b3JkIjoiMTExMTExIiwibmFtZSI6ImQifSwiaWF0IjoxNjQyMTA5MTUxLCJleHAiOjE2NDIzNjgzNTF9.gUQSN7-Mydz6DGivtMYiwX3qqUKYgnTMuaqRiTgMefs
 
 ### PUT project
-PUT http://localhost:5000/api/projects/b0c54c20-86a9-4caf-b025-67778231d5c3
+PUT http://localhost:5000/api/projects/8021a115-e619-42c5-a3e2-da7ae44ff1eb
 Content-Type: application/json
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2MzUzNjY5MDcsImV4cCI6MTYzNTYyNjEwN30.KBe2QLNegP0zXpiLRPKTWjSTW2Gn1_fX71l352AFfiE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiODRiNzI4ZWUtYjkxMy00MDNiLTg3ZGQtNmQzOGRhNzg4OThhIiwiZW1haWwiOiJ2aXRhbGl5LnBAaGFsby1sYWIudGVhbSIsInBhc3N3b3JkIjoiMTExMTExIiwibmFtZSI6ImQifSwiaWF0IjoxNjQyMTA5MTUxLCJleHAiOjE2NDIzNjgzNTF9.gUQSN7-Mydz6DGivtMYiwX3qqUKYgnTMuaqRiTgMefs
 
 {
-  "projectName": "0update name"
+  "projectname": "0update name"
 }
 
 ### GET tasks
 GET http://localhost:5000/api/project/tasks/063a2c71-ce72-483f-a545-4a488b757d32
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2NDA0NDk0MDIsImV4cCI6MTY0MDcwODYwMn0.sawYok1noAL6-yKGiX8rbdB8X9mIjfgzmchv-b7U9Dg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiODRiNzI4ZWUtYjkxMy00MDNiLTg3ZGQtNmQzOGRhNzg4OThhIiwiZW1haWwiOiJ2aXRhbGl5LnBAaGFsby1sYWIudGVhbSIsInBhc3N3b3JkIjoiMTExMTExIiwibmFtZSI6ImQifSwiaWF0IjoxNjQyMTA5MTUxLCJleHAiOjE2NDIzNjgzNTF9.gUQSN7-Mydz6DGivtMYiwX3qqUKYgnTMuaqRiTgMefs
 
 ### create task
 POST http://localhost:5000/api/tasks
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2MzYzMDM2MDUsImV4cCI6MTYzNjU2MjgwNX0.Adeh5Wgnshnt-64ZQ52NDtxKSQ9lFKvbljxRuI89SuY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiODRiNzI4ZWUtYjkxMy00MDNiLTg3ZGQtNmQzOGRhNzg4OThhIiwiZW1haWwiOiJ2aXRhbGl5LnBAaGFsby1sYWIudGVhbSIsInBhc3N3b3JkIjoiMTExMTExIiwibmFtZSI6ImQifSwiaWF0IjoxNjQyMTA5MTUxLCJleHAiOjE2NDIzNjgzNTF9.gUQSN7-Mydz6DGivtMYiwX3qqUKYgnTMuaqRiTgMefs
 
 {
   "task_name": "5 task",
-  "project_id": "063a2c71-ce72-483f-a545-4a488b757d32"
+  "project_id": "803903df-bf76-41a9-aa7a-0c4756279975"
 }
 
 ### DELETE task
-DELETE http://localhost:5000/api/task/d741309e-c22b-4119-9610-b58869e3107e
+DELETE http://localhost:5000/api/task/5fe122cb-c3cf-4b79-ac31-4b8c145f0342
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiODRiNzI4ZWUtYjkxMy00MDNiLTg3ZGQtNmQzOGRhNzg4OThhIiwiZW1haWwiOiJ2aXRhbGl5LnBAaGFsby1sYWIudGVhbSIsInBhc3N3b3JkIjoiMTExMTExIiwibmFtZSI6ImQifSwiaWF0IjoxNjQyMTg1NzAyLCJleHAiOjE2NDI0NDQ5MDJ9.Gq_XznHVsMzNW9EA2Qjb5dQx0tjpvWGwv6xSEGO3dyU
 
 ### PUT task
-PUT http://localhost:5000/api/task/e7a6265d-872f-4b13-89bd-a0a4559c1ce1
+PUT http://localhost:5000/api/task/41cb3277-3943-45be-afa2-7e1a96e92280
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6eyJpZCI6Ijk3MjA2ZTg1LWIxODctNDViYS04ZWVmLWM1NjI4M2I5N2UyNCIsImVtYWlsIjoidml0YWxpeS5wQGhhbG8tbGFiLnRlYW0iLCJwYXNzd29yZCI6IjExMTExMSJ9LCJpYXQiOjE2NDA0NDk0MDIsImV4cCI6MTY0MDcwODYwMn0.sawYok1noAL6-yKGiX8rbdB8X9mIjfgzmchv-b7U9Dg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiODRiNzI4ZWUtYjkxMy00MDNiLTg3ZGQtNmQzOGRhNzg4OThhIiwiZW1haWwiOiJ2aXRhbGl5LnBAaGFsby1sYWIudGVhbSIsInBhc3N3b3JkIjoiMTExMTExIiwibmFtZSI6ImQifSwiaWF0IjoxNjQyMTg1NzAyLCJleHAiOjE2NDI0NDQ5MDJ9.Gq_XznHVsMzNW9EA2Qjb5dQx0tjpvWGwv6xSEGO3dyU
 
 {
   "task_name": "0update name",
   "create_date": "",
   "time": "30",
-  "project_id": "063a2c71-ce72-483f-a545-4a488b757d32",
-  "user_id": "92e600c5-c9f8-4476-906e-c3935471d6d0"
+  "project_id": "803903df-bf76-41a9-aa7a-0c4756279975",
+  "user_id": "84b728ee-b913-403b-87dd-6d38da78898a"
 }

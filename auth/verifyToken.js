@@ -11,7 +11,7 @@ function verifyToken(req, reply, done) {
       done(new Error('Unauthorized'));
     }
     req.user = {
-      id: decoded.id, // pass in the user's info
+      user: decoded.user, // pass in the user's info
     };
   });
 

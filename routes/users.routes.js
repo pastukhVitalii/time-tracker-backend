@@ -1,13 +1,13 @@
 const jwt = require('jsonwebtoken');
 const {v4: uuidv4} = require('uuid');
 const verifyToken = require("../auth/verifyToken");
-const {getAdminsOpts, loginAdminOpts, registerAdminOpts, getMe} = require('../schema/user.schema.js');
+const {getAdmins, loginAdmin, registerAdmin, getMe} = require('../schema/user.schema.js');
 
 const adminRoutes = (fastify, options, done) => {
   fastify.register(require('fastify-auth')).after(() => privateRoutes(fastify, options, done));
 
   // get all admins
-  fastify.get('/api/admins', getAdminsOpts, async (req, reply) => {
+  fastify.get('/api/admins', getAdmins, async (req, reply) => {
 
     fastify.pg.query(
       'SELECT * FROM admin',
@@ -18,7 +18,7 @@ const adminRoutes = (fastify, options, done) => {
   })
 
   // login an admin
-  fastify.post('/api/admins/login', loginAdminOpts, async (req, reply) => {
+  fastify.post('/api/admins/login', loginAdmin, async (req, reply) => {
 
     const {password} = req.body;
     const {email} = req.body;
@@ -41,12 +41,12 @@ const adminRoutes = (fastify, options, done) => {
 
       // check if password is correct
       if (password !== admin.password) {
-        return reply.send('Invalid credentials');
+        return reply.send('Invalid password');
       }
 
       // sign a token
       jwt.sign(
-        {id: admin},
+        {user: admin},
         'my_jwt_secret',
         {expiresIn: 3 * 86400},
         (err, token) => {
@@ -63,7 +63,7 @@ const adminRoutes = (fastify, options, done) => {
   })
 
   // register an admin
-  fastify.post('/api/admins/new', registerAdminOpts, async (req, reply) => {
+  fastify.post('/api/admins/new', registerAdmin, async (req, reply) => {
     const {email, name} = req.body;
     const {password} = req.body;
     const id = uuidv4();
@@ -82,12 +82,26 @@ const adminRoutes = (fastify, options, done) => {
     if (admin) {
       return reply.send("This email is using");
     }
+
     fastify.pg.query(
       `INSERT INTO admin(id, email, name, password)
        VALUES ($1, $2, $3, $4)
        RETURNING *`, [id, email, name, password],
       function onResult(err, result) {
-        reply.send(err || result.rows[0])
+        if (err) reply.send(err)
+        // sign a token
+        const t = jwt.sign(
+          {
+            user: {
+              id: id,
+              email: email,
+              password: password,
+              name: name
+            }
+          },
+          'my_jwt_secret',
+          {expiresIn: 3 * 86400});
+        reply.send({...result.rows[0], token: t})
       }
     )
   })
@@ -102,7 +116,7 @@ const privateRoutes = (fastify, options, done) => {
     preHandler: fastify.auth([verifyToken]),
     schema: getMe,
     handler: async (req, reply) => {
-      const id = req.user.id.id;
+      const id = req.user.user.id;
       fastify.pg.query(
         'SELECT * FROM admin WHERE id = $1', [id],
         function onResult(err, result) {

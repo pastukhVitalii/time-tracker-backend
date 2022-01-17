@@ -29,10 +29,10 @@ const privateRoutes = (fastify, options, done) => {
     method: "POST",
     url: '/api/tasks',
     preHandler: fastify.auth([verifyToken]),
-    scema: createTask,
+    schema: createTask,
     handler: async (req, reply) => {
       const {task_name, project_id} = req.body;
-      const user_id = req.user.id.id;
+      const user_id = req.user.user.id;
       const id = uuidv4();
 
       const create_date = new Date().toISOString();
@@ -63,7 +63,8 @@ const privateRoutes = (fastify, options, done) => {
         'DELETE FROM task WHERE id = $1 RETURNING *', [id],
         function onResult(err, result) {
           if (err) reply.send(err)
-          reply.send({deleted: true})
+          if (result.rowCount !== 0) reply.send({deleted: true})
+          else reply.send("Task not found!")
         }
       )
     }
@@ -83,7 +84,8 @@ const privateRoutes = (fastify, options, done) => {
         'UPDATE task SET task_name=$1, update_date=$2, create_date=$3, time=$4, project_id=$5, user_id=$6 WHERE id=$7 RETURNING *', [task_name, update_date, create_date, time, project_id, user_id, id],
         function onResult(err, result) {
           if (err) reply.send(err)
-          reply.send({updated: true, task: result.rows[0]});
+          if (result.rowCount !== 0) reply.send({updated: true, task: result.rows[0]});
+          else reply.send("Task not found!")
         }
       )
     }

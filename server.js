@@ -20,14 +20,15 @@ fastify.register(require('./routes/project.routes'))
 fastify.register(require('./routes/task.routes'))
 
 fastify.register(require('fastify-postgres'), {
-  connectionString: 'postgres://postgres:postFIB011235@localhost:5432/time-tracker'
+  connectionString: process.env.DATABASE_URL
 })
 
-const PORT = 5000;
+const PORT = process.env.PORT || 3000;
 
 const start = async () => {
   try {
-    await fastify.listen(PORT)
+    /*prod*/  await fastify.listen(PORT, '0.0.0.0');
+    /*dev*/ // await fastify.listen(PORT)
   } catch (error) {
     fastify.log.error(error)
     process.exit(1)
